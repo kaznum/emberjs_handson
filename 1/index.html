@@ -9,18 +9,23 @@
       // アプリケーションを作る（アプリケーションのネームスペースを作っている)
       window.App = Ember.Application.create();
       // userという変数を用意する
-      App.user = Ember.Object.create({
-        // nameというプロパティを作って値を設定している
-        name: 'kaznum'
+      App.User = Ember.Object.extend({
+        firstName: 'Kazuya',
+        lastName: 'Numata',
+        fullName: function () {
+          return this.get('firstName') + ' ' + this.get('lastName');
+        }.property('firstName', 'lastName')
       });
+      App.user = App.User.create();
     </script>
   </head>
   <body>
     <!-- {{...}} で展開 -->
     <script type='text/x-handlebars'>
-      <h1>Hello, {{App.user.name}}!</h1>
-      // Databinding
-      {{input value=App.user.name}}
+      <h1>Hello, {{App.user.fullName}}!</h1>
+      <!-- Databinding -->
+      {{input value=App.user.firstName}}
+      {{input value=App.user.lastName}}
     </script>
   </body>
 </html>
