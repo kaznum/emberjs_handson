@@ -19,7 +19,7 @@
 	    <!-- isCompleted:<true>:<false>, isCompleted::<false> -->
             <li {{bind-attr class="isCompleted:completed isEditing:editing"}}>
 	      {{#if isEditing}}
-	        <input class='edit'>
+	        {{edit-todo class="edit" value=title focus-out="acceptChanges" insert-newline="acceptChanges"}}
 	      {{else}}
                 {{input type="checkbox" checked=isCompleted class="toggle"}}
 		<!-- input helperはactionを持っていたが、任意のHTML要素に対しactionを呼び出す場合は actionヘルパーを使用する -->
@@ -68,5 +68,6 @@
     <script src="js/models/todo.js"></script>
     <script src="js/controllers/todos_controller.js"></script>
     <script src="js/controllers/todo_controller.js"></script>
+    <script src="js/views/edit_todo_view.js"></script>
   </body>
 </html>
