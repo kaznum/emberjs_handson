@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <script src='jquery-2.0.3.js'></script>
+    <script src='handlebars-1.0.0.js'></script>
+    <script src='ember.js'></script>
+    <script>
+      window.App = Ember.Application.create();
+      App.user = Ember.Object.create({
+        name: 'kaznum'
+      });
+    </script>
+  </head>
+  <body>
+    <script type='text/x-handlebars'>
+      <h1>Hello, {{App.user.name}}!</h1>
+    </script>
+  </body>
+</html>
