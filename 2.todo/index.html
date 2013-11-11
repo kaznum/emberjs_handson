@@ -15,6 +15,7 @@
 	<section id="main">
           <ul id="todo-list">
 	    {{#each}}
+	    <!-- isCompleted:<true>:<false>, isCompleted::<false> -->
             <li {{bind-attr class="isCompleted:completed"}}>
               <input type="checkbox" class="toggle">
               <label>{{title}}</label><button class="destroy"></button>
