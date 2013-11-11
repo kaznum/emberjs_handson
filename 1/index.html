@@ -13,6 +13,7 @@
         firstName: 'Kazuya',
         lastName: 'Numata',
         fullName: function () {
+          // Computed Property
           return this.get('firstName') + ' ' + this.get('lastName');
         }.property('firstName', 'lastName')
       });
