@@ -6,8 +6,9 @@ Todos.Router.map(function () {
 });
 
 // どんな振る舞いをするかを決める
-// model のfunctionの戻り値がRouterで定義されたtodosテンプレートに返される
+// model のfunctionの戻り値をTodosControllerに返しTodosControllerがRouterで定義されたtodosテンプレートにthisとして返される
 // templateの#each の引数（省略されている)に渡される( {{#each this}} )
+// controllerを定義しないと、裏側で自動的にうまい具合にコントローラを生成してやってくれる。
 Todos.TodosRoute = Ember.Route.extend({
   model: function () {
     // todo リストの全レコードを返す
