@@ -1,7 +1,7 @@
 Todos.TodoController = Ember.ObjectController.extend({
   isCompleted: function (key, value) {
     var model = this.get("model");
-
+    // valueに値を設定しないで呼ばれた時には、get
     if (value === undefined) {
       // getter
       return model.get('isCompleted');
@@ -11,5 +11,5 @@ Todos.TodoController = Ember.ObjectController.extend({
       model.save();
       return value;
     }
-  }.property("model.isCompleted")
+  }.property("model.isCompleted") // marked as 'computed property'
 });

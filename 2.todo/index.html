@@ -15,6 +15,7 @@
 	<section id="main">
           <ul id="todo-list">
 	    {{#each itemController="todo"}}
+	    <!-- itemControllerを指定することで、TodoControllerのisCompletedが呼ばれるようになる(それまではTodoモデルの isCompleted が呼ばれていた) -->
 	    <!-- isCompleted:<true>:<false>, isCompleted::<false> -->
             <li {{bind-attr class="isCompleted:completed"}}>
               {{input type="checkbox" checked=isCompleted class="toggle"}}
