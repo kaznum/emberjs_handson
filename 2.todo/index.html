@@ -19,6 +19,7 @@
 	    <!-- isCompleted:<true>:<false>, isCompleted::<false> -->
             <li {{bind-attr class="isCompleted:completed isEditing:editing"}}>
 	      {{#if isEditing}}
+	        <!-- ここでは TodoContollerがthisであるが、TodoControllerにtitleが無いので、modelに移譲される value=model.titleと書いても良い。-->
 	        {{edit-todo class="edit" value=title focus-out="acceptChanges" insert-newline="acceptChanges"}}
 	      {{else}}
                 {{input type="checkbox" checked=isCompleted class="toggle"}}

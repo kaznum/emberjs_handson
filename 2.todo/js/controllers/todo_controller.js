@@ -21,7 +21,10 @@ Todos.TodoController = Ember.ObjectController.extend({
     acceptChanges: function () {
       this.set('isEditing', false);
 
+      // isEmptyは空文字、null、undefined等の時にtrue
+      // model.titleでなくても、titleでも行けるはず
       if (Ember.isEmpty(this.get('model.title'))) {
+        // controller内からactionを呼び出す時、send を使用する。
         this.send('removeTodo');
       } else {
         this.get('model').save();
@@ -29,5 +32,6 @@ Todos.TodoController = Ember.ObjectController.extend({
     }
   },
 
+  // ここで、isEditingにfalseでも初期値を定義しているのは、modelに移譲しないようにするため(?)
   isEditing: false
 });
