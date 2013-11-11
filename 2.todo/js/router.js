@@ -8,6 +8,7 @@ Todos.Router.map(function () {
   // Todosの{{outlet}}の部分にTodos/indexの結果が描画される
   // todos.active, todos.completedが追加できる
   this.resource('todos', { path: '/'}, function () {
+    // resourceとは異なり、routeの下にはぶら下げることはできない。
     return this.route("active");
   });
 });
@@ -33,11 +34,14 @@ Todos.TodosIndexRoute = Ember.Route.extend({
 
 Todos.TodosActiveRoute = Ember.Route.extend({
   model: function () {
+    // todo listから、iscompletedがfalseのものだけを出力する
     return this.store.filter('todo', function (todo) {
       return !todo.get("isCompleted");
     });
   },
-
+  // renderTemplateを記載しない場合は、todos/activeを探しに行く。
+  // 今回はactiveでも同じテンプレートを使用する。
+  // { controller: controller }は不要のはず(?)
   renderTemplate: function (controller) {
     this.render('todos/index', { controller: controller });
   }
