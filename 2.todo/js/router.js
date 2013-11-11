@@ -8,6 +8,7 @@ Todos.Router.map(function () {
   // Todosの{{outlet}}の部分にTodos/indexの結果が描画される
   // todos.active, todos.completedが追加できる
   this.resource('todos', { path: '/'}, function () {
+    return this.route("active");
   });
 });
 
@@ -30,3 +31,14 @@ Todos.TodosIndexRoute = Ember.Route.extend({
   }
 });
 
+Todos.TodosActiveRoute = Ember.Route.extend({
+  model: function () {
+    return this.store.filter('todo', function (todo) {
+      return !todo.get("isCompleted");
+    });
+  },
+
+  renderTemplate: function (controller) {
+    this.render('todos/index', { controller: controller });
+  }
+});
