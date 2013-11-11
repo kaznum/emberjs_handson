@@ -24,6 +24,8 @@
           </span>
           <ul id="filters">
             <li>
+	      <!-- todos.indexでなくても、todosだけでも動作する。 -->
+	      <!-- ただし、全く一緒ではない。 todosのchild routesもすべて有効になってしまう -->
               {{#link-to "todos.index" activeClass="selected"}}All{{/link-to}}
             </li>
             <li>
