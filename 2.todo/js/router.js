@@ -2,7 +2,8 @@
 // ここでは、todos というテンプレートが使われるようになる
 // どのモデルを使うかも決める
 Todos.Router.map(function () {
-  this.resource('todos', { path: '/'} );
+  this.resource('todos', { path: '/'}, function () {
+  });
 });
 
 // どんな振る舞いをするかを決める
@@ -13,6 +14,12 @@ Todos.TodosRoute = Ember.Route.extend({
   model: function () {
     // todo リストの全レコードを返す
     return this.store.find('todo');
+  }
+});
+
+Todos.TodosIndexRoute = Ember.Route.extend({
+  model: function () {
+    return this.modelFor('todos');
   }
 });
 
