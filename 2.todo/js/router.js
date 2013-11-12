@@ -34,6 +34,7 @@ Todos.TodosIndexRoute = Ember.Route.extend({
 });
 
 Todos.TodosActiveRoute = Ember.Route.extend({
+  controllerName: 'todosIndex',
   model: function () {
     // todo listから、iscompletedがfalseのものだけを出力する
     return this.store.filter('todo', function (todo) {
@@ -49,6 +50,7 @@ Todos.TodosActiveRoute = Ember.Route.extend({
 });
 
 Todos.TodosCompletedRoute = Ember.Route.extend({
+  controllerName: 'todosIndex',
   model: function () {
     return this.store.filter('todo', function (todo) {
       return todo.get("isCompleted");
