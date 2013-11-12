@@ -1,6 +1,7 @@
 Todos.Todo = DS.Model.extend({
   title: DS.attr('string'),
-  isCompleted: DS.attr('boolean')
+  isCompleted: DS.attr('boolean'),
+  deadline: DS.attr('string')
 });
 
 Todos.Todo.FIXTURES = [
