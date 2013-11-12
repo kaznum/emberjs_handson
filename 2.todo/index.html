@@ -55,7 +55,7 @@
 	{{#each itemController="todo"}}
 	<!-- itemControllerを指定することで、TodoControllerのisCompletedが呼ばれるようになる(それまではTodoモデルの isCompleted が呼ばれていた) -->
 	<!-- isCompleted:<true>:<false>, isCompleted::<false> -->
-        <li {{bind-attr class="isCompleted:completed isEditing:editing"}}>
+        <li {{bind-attr class="isCompleted:completed isEditing:editing isOutdated:outdated"}}>
           {{#if isEditing}}
             <!-- ここでは TodoContollerがthisであるが、TodoControllerにtitleが無いので、modelに移譲される value=model.titleと書いても良い。-->
             {{edit-todo class="edit" value=title insert-newline="acceptChanges"}}

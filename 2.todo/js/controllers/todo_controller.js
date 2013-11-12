@@ -13,6 +13,15 @@ Todos.TodoController = Ember.ObjectController.extend({
     }
   }.property("model.isCompleted"),  // marked as 'computed property'
 
+  isOutdated: function () {
+    var model = this.get('model');
+    var deadline = model.get('deadline');
+    if (Ember.isEmpty(deadline))
+      return false;
+
+    return new Date(deadline) < new Date();
+  }.property("deadline"),
+
   actions: {
     editTodo: function () {
       this.set('isEditing', true);
