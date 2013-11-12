@@ -41,7 +41,7 @@
             <button id="clear-completed" {{action "clearCompleted"}}>
               Clear completed ({{completed}})
             </button>
-	  {{/if}}
+          {{/if}}
 	</footer>
       </section>
 
@@ -56,17 +56,17 @@
 	<!-- itemControllerを指定することで、TodoControllerのisCompletedが呼ばれるようになる(それまではTodoモデルの isCompleted が呼ばれていた) -->
 	<!-- isCompleted:<true>:<false>, isCompleted::<false> -->
         <li {{bind-attr class="isCompleted:completed isEditing:editing"}}>
-	  {{#if isEditing}}
-	  <!-- ここでは TodoContollerがthisであるが、TodoControllerにtitleが無いので、modelに移譲される value=model.titleと書いても良い。-->
-	  {{edit-todo class="edit" value=title focus-out="acceptChanges" insert-newline="acceptChanges"}}
-	  {{else}}
-          {{input type="checkbox" checked=isCompleted class="toggle"}}
-	  <!-- input helperはactionを持っていたが、任意のHTML要素に対しactionを呼び出す場合は actionヘルパーを使用する -->
-	  <!-- onを指定しない場合は、one clickでactionが実行される -->
-          <label {{action "editTodo" on="doubleClick"}}>{{title}}</label><button {{action "removeTodo"}} class="destroy"></button>
-	  {{/if}}
+          {{#if isEditing}}
+            <!-- ここでは TodoContollerがthisであるが、TodoControllerにtitleが無いので、modelに移譲される value=model.titleと書いても良い。-->
+            {{edit-todo class="edit" value=title focus-out="acceptChanges" insert-newline="acceptChanges"}}
+          {{else}}
+            {{input type="checkbox" checked=isCompleted class="toggle"}}
+            <!-- input helperはactionを持っていたが、任意のHTML要素に対しactionを呼び出す場合は actionヘルパーを使用する -->
+            <!-- onを指定しない場合は、one clickでactionが実行される -->
+            <label {{action "editTodo" on="doubleClick"}}>{{title}}</label><button {{action "removeTodo"}} class="destroy"></button>
+          {{/if}}
         </li>
-	{{/each}}
+        {{/each}}
       </ul>
     </script>
 
